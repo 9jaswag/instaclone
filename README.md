@@ -1,24 +1,43 @@
-# README
+An Instagram clone built with Ruby on Rails and Pusher Channels
+------
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An app built as an entry to the very first Dev.to event
 
-Things you may want to cover:
 
-* Ruby version
+Getting Started
+------
 
-* System dependencies
+#### Clone The Repository
+`$ git clone https://github.com/9jaswag/instaclone.git`
 
-* Configuration
 
-* Database creation
+#### Change directory
+`$ cd instaclone`
 
-* Database initialization
+#### Install dependencies
+`$ bundle install`
 
-* How to run the test suite
+#### Setup up database
+`$ rails db:setup`
+`$ rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Setup up Figaro and Env variables
+- Run `$ figaro install` to automatically generate `application.yml` file.
+- Open `config/application.yml` and replace the content (if any) with the following:
+```
+PUSHER_APP_ID: 'your Pusher app ID'
+PUSHER_KEY: 'your pusher kep'
+PUSHER_SECRET: 'your pusher secret'
+PUSHER_CLUSTER: 'your pusher cluster'
+```
 
-* Deployment instructions
 
-* ...
+Prerequisites
+------
+A basic knowledge of Ruby and CoffeeScript
+
+
+Built With
+------
+- [Pusher](https://pusher.com) - A Ruby gem to interact with the Pusher REST API
+- [Devise](https://github.com/plataformatec/devise) - A flexible authentication solution for Rails based on Warden
