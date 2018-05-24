@@ -54,3 +54,5 @@ gem 'jquery-rails'
 gem 'pusher'
 gem 'figaro'
 gem 'devise'
+gem 'will_paginate', '~> 3.1.0'
+gem "paperclip", "~> 6.0.0"
