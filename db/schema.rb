@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180524200814) do
+ActiveRecord::Schema.define(version: 20180524215616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "like_count", default: 0
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "caption"
@@ -46,5 +54,6 @@ ActiveRecord::Schema.define(version: 20180524200814) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "likes", "posts"
   add_foreign_key "posts", "users"
 end

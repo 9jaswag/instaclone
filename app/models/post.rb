@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :likes
   has_attached_file :image
   after_create :notify_pusher
 
@@ -11,7 +12,8 @@ class Post < ApplicationRecord
       id: self.id,
       caption: self.caption,
       user: self.user.username,
-      image: self.image.url
+      image: self.image.url,
+      likes: self.likes[0].like_count
     }
   end
 
