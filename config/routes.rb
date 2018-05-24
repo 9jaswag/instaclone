@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
-  # post '/post/:user_id' => 'posts#create', as: 'create_post'
+  post '/likes/:post_id', to: 'posts#add_like', as: "add_likes"
 
   devise_for :users
   root 'posts#index'

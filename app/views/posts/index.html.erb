@@ -13,7 +13,8 @@
           <img src="<%= post.image.url %>" class="img-fluid img-thumbnail" />
         </div>
         <div class="post-caption">
-          <h6 class="mt-2"><%= post.caption %></h6>
+          <h6 class="mt-2 d-inline-block"><%= post.caption %></h6>
+          <%= link_to '', add_likes_path(post_id: post.id), remote: true, method: :post, class: "far fa-heart ml-3 like-icon" %><span class="ml-2" data-post="<%= post.id %>"><%= post.likes[0].like_count %></span>
         </div>
       </div>
     <% end %>
