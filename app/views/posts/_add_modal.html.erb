@@ -1,0 +1,28 @@
+<div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addPostModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addPostModalLabel">Add new post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: @post, format: :json, id: 'add-post') do |form| %>
+          <div class="field">
+            <%= form.label :caption %>
+            <%= form.text_field :caption, id: :caption, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= form.label :image %>
+            <%= form.file_field :image, id: :image, class: "form-control" %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= form.submit 'Add Post', class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
