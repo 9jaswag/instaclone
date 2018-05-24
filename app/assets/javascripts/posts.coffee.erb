@@ -6,21 +6,9 @@ $(document).ready =>
   $('#add-post').on 'ajax:success', (data) ->
     $('#addPostModal').modal('hide')
     post = data.detail[0]
-    <%# # $('.posts').prepend """
-    #   <div class="post-wrapper col-12 col-md-8 col-lg-6">
-    #     <div class="post-user">
-    #       <h6>@<span class="post-user">#{post.user}</span</h6>
-    #     </div>
-    #     <div class="post">
-    #       <img src="#{post.image}" class="img-fluid img-thumbnail" />
-    #     </div>
-    #     <div class="post-caption">
-    #       <h6 class="mt-2">#{post.caption}</h6>
-    #     </div>
-    #   </div>
-    # """ %>
 
   updatePosts = (post) ->
+    console.log post
     $('.posts').prepend """
       <div class="post-wrapper col-12 col-md-8 col-lg-6">
         <div class="post-user">
@@ -31,6 +19,8 @@ $(document).ready =>
         </div>
         <div class="post-caption">
           <h6 class="mt-2">#{post.caption}</h6>
+          <a class="far fa-heart ml-3 like-icon" data-remote="true" rel="nofollow" data-method="post" href="/likes/#{post.id}"></a>
+          <span class="ml-2" data-post="#{post.id}">#{post.likes}</span>
         </div>
       </div>
     """
@@ -46,5 +36,8 @@ $(document).ready =>
   channel = pusher.subscribe('post')
   channel.bind 'new', (data) ->
     updatePosts data
+  channel.bind 'new-like', (data) ->
+    currentPost = $ 'span[data-post=\'' + data.id + '\']'
+    currentPost.text(data.likes)
     return
   return
