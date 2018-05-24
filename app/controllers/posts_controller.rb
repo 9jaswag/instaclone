@@ -28,7 +28,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
     if @post
       @post.likes[0].like_count +=1
-      # byebug
 
       if @post.likes[0].save
         respond_to do |format|
