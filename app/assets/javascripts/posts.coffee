@@ -19,3 +19,7 @@ $(document).ready =>
         </div>
       </div>
     """
+
+  $('#add-post').on 'ajax:error', (data) ->
+    error = data.detail[0]
+    $('.upload-error').append('File type must be an image and less than 500kb')
