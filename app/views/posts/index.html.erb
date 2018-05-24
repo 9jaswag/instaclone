@@ -4,16 +4,18 @@
     <%= render 'add_modal' %>
   </div>
   <div class="container bg-white posts">
-    <div class="post-wrapper col-12 col-md-8 col-lg-6">
-      <div class="post-user">
-        <h6>@<span class="post-user">username</span</h6>
+    <% @posts.each do |post| %>
+      <div class="post-wrapper col-12 col-md-8 col-lg-6">
+        <div class="post-user">
+          <h6>@<span class="post-user"><%= post.user.username %></span</h6>
+        </div>
+        <div class="post">
+          <img src="<%= post.image.url %>" class="img-fluid img-thumbnail" />
+        </div>
+        <div class="post-caption">
+          <h6 class="mt-2"><%= post.caption %></h6>
+        </div>
       </div>
-      <div class="post">
-        <img src="https://3.bp.blogspot.com/-9Iu3-Xnvtig/Wntv1F6CKII/AAAAAAAAAR0/CvCLy-jFSUIfM9vjj6UdjZigK7LKBnSPgCLcBGAs/s1600/2.jpg" class="img-fluid img-thumbnail" />
-      </div>
-      <div class="post-caption">
-        <h6 class="mt-2">Life is worth living</h6>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
