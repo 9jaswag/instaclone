@@ -29,3 +29,21 @@
   border-radius: 3px;
   padding: 1rem;
 }
+
+.alert-container {
+  position: fixed;
+}
+
+.post-wrapper {
+  margin: 1rem auto;
+}
+
+.post {
+  // min-height: 30rem;
+  max-height: 30rem;
+  overflow: hidden;
+}
+
+.post-user {
+  font-weight: 700;
+}
