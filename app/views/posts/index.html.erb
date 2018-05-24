@@ -1,11 +1,11 @@
 <div class="container-fluid bg-light">
-  <div class="container">
+  <div class="container p-0">
     <%= render 'header' %>
     <%= render 'add_modal' %>
   </div>
   <div class="container bg-white posts">
     <% @posts.each do |post| %>
-      <div class="post-wrapper col-12 col-md-8 col-lg-6">
+      <div class="post-wrapper col-12 col-md-8 col-lg-6 py-2">
         <div class="post-user">
           <h6>@<span class="post-user"><%= post.user.username %></span</h6>
         </div>
