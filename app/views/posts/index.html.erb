@@ -10,7 +10,9 @@
           <h6>@<span class="post-user"><%= post.user.username %></span</h6>
         </div>
         <div class="post">
-          <img src="<%= post.image_url %>" class="img-fluid img-thumbnail" />
+          <a href="<%= post_path(post) %>">
+            <img src="<%= post.image_url %>" class="img-fluid img-thumbnail" />
+          </a>
         </div>
         <div class="post-caption">
           <h6 class="mt-2 d-inline-block"><%= post.caption %></h6>

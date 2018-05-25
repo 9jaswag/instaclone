@@ -14,7 +14,9 @@ $(document).ready =>
           <h6>@<span class="post-user">#{post.user}</span</h6>
         </div>
         <div class="post">
-          <img src="#{post.image}" class="img-fluid img-thumbnail" />
+          <a href="/posts/#{post.id}">
+            <img src="#{post.image}" class="img-fluid img-thumbnail" />
+          </a>
         </div>
         <div class="post-caption">
           <h6 class="mt-2">#{post.caption}</h6>
