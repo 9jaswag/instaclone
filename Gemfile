@@ -56,5 +56,7 @@ gem 'figaro'
 gem 'devise'
 gem 'will_paginate', '~> 3.1.0'
 gem "paperclip", "~> 6.0.0"
+gem 'carrierwave'
+gem 'cloudinary'
 
 ruby "2.4.1"
