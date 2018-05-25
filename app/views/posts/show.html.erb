@@ -1,2 +1,16 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container">
+  <div class="post-wrapper col-12 col-md-8 col-lg-6 py-2">
+    <div class="post-user">
+      <h6>@<span class="post-user"><%= @post.user.username %></span</h6>
+    </div>
+    <div class="post">
+      <img src="<%= @post.image_url %>" class="img-fluid img-thumbnail" />
+    </div>
+    <div class="post-caption">
+      <h6 class="mt-2 d-inline-block"><%= @post.caption %></h6>
+      <%= link_to '', add_likes_path(post_id: @post.id), remote: true, method: :post, class: "far fa-heart ml-3 like-icon" %><span class="ml-2" data-post="<%= @post.id %>"><%= @post.likes[0].like_count %></span>
+      <br />
+      <%= link_to 'Back', root_path, class: 'btn btn-info' %>
+    </div>
+  </div>
+</div>
