@@ -38,6 +38,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def add_like
+    @post = Post.find(params[:post_id])
+    if @post
+      @post.likes[0].like_count +=1
+
+      if @post.likes[0].save
+        respond_to do |format|
+          format.json { render :show, status: :ok }
+        end
+      end
+    end
+  end
+
   private
     def post_params
       params.permit(:caption, :image)
